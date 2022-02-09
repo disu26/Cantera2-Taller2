@@ -2,19 +2,42 @@
 package taller2;
 
 /**
- * Clase nave lanzadera, esta es una clase que se extiende de la clase nave espacial.
+ * Clase nave tripulada, esta es una clase que se extiende de la clase nave espacial.
  * @author Dímar Andrey Suárez Hidalgo
  */
-public class Shuttle extends SpaceShip {
+public class Manned extends SpaceShip{
+    /**
+     * Hace referencia al nombre la mision de la nave
+     */
+    public String mision;
+
     /**
      * Constructor de la clase.
      * @param launchingCountry Hace referencia al pais de lanzamiento de la nave
      * @param name hace referencia al nombre de la nave.
      * @param speed hace referencia a la velocidad de la nave.
      */
-    public Shuttle(String launchingCountry, String name, float speed) {
+    public Manned(String launchingCountry, String name, float speed) {
         super(name, speed);
         this.launchingCountry = launchingCountry;
+    }
+
+    /**
+     * Se sobreescribe el metodo de la clase abstracta
+     * @return el nombre de la mision de la nave
+     */
+    @Override
+    public String getMision() {
+        return mision;
+    }
+
+    /**
+     * Se sobreescribe el metodo de la clase abstracta
+     * @param mision hace referencia al nombre de la mision.
+     */
+    @Override
+    public void setMision(String mision) {
+        this.mision = mision;
     }
     
     /**
@@ -40,5 +63,4 @@ public class Shuttle extends SpaceShip {
         String fuel = read.next();
         return "Esta nave usaba/usa"+fuel+"como combustible";
     }
-    
 }
